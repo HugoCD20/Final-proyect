@@ -1,0 +1,660 @@
+/*Paleta de colores #164863 #427D9D #9BBEC8, #DDF2FD*/
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Fira+Sans:ital,wght@0,300;1,900&family=Young+Serif&display=swap');
+body{
+    margin: 0%;
+    background: linear-gradient(to bottom, #427D9D,#9BBEC8, #DDF2FD);
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main {
+    flex: 1;
+}
+header{
+    width: 100%;
+    height: auto;
+    background-color: #164863;
+    margin: 0%;
+    display: flex;
+    flex-flow:column nowrap;
+    justify-content: end;
+}
+.content-10{
+    width: 100%;
+    height: 4rem;
+    background-color: #164863;
+    margin: 0%;
+    display: flex;
+    flex-flow:row nowrap;
+    justify-content: end;
+}
+.content-9{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 2rem;
+    background-color: #295c77;
+
+}
+.content-1{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: right;
+    
+}
+.content-4{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+.imagen-2{
+    width: 4rem;
+    height: 4rem;
+    margin-right: 1rem;
+}
+.img-2{
+    width: 100%; 
+    height: 100%;
+    object-fit: contain;
+}
+.title-4{
+    font-family: 'Young Serif', serif;
+    color: #f5f5f5;
+    font-size: 1.4rem;
+    text-shadow: 2px 2px 2px rgb(1, 1, 1);
+}
+a{
+    text-decoration: none;
+}
+.carrito{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    
+}
+.title-1{
+    color: white;
+    font-size: 1.3rem;
+    margin-left:1rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.CarCompra{
+    width: 3rem;
+    height: 3rem;
+}
+.menu{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 50%;
+}
+.titulo-1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+.title-2{
+    text-transform: uppercase;
+    font-family: verdana;
+    font-size: 6rem;
+    font-weight: 700;
+    color: #f5f5f5;
+    text-shadow: 1px 1px 1px #919191,
+        1px 2px 1px #919191,
+        1px 3px 1px #919191,
+        1px 4px 1px #919191,
+        1px 5px 1px #919191,
+        1px 6px 1px #919191,
+        1px 7px 1px #919191,
+        1px 8px 1px #919191,
+        1px 9px 1px #919191,
+        1px 10px 1px #919191,
+    1px 18px 6px rgba(16,16,16,0.4),
+    1px 22px 10px rgba(16,16,16,0.2),
+    1px 25px 35px rgba(16,16,16,0.2),
+    1px 30px 60px rgba(16,16,16,0.4);
+}
+.title-3{
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #164863;
+    text-shadow: 2px 2px 2px rgb(255, 255, 255);
+}
+.title-5{
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #164863;
+}
+.content-2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+.content-3{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+.contenedores{
+    width: 70%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.cont-1{
+    /**/
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    height: 20rem;
+    height: auto;
+    background: linear-gradient(to bottom, #427D9D,#9BBEC8, #DDF2FD);
+    margin: 0.5rem;
+}
+.cont-1:hover{
+    background: linear-gradient(to top, #427D9D,#9BBEC8, #DDF2FD); 
+}
+.imagen-1{
+    width: 100%;
+    height: 100%;
+}
+button{
+    width: 100%;
+    height: 100%;
+    background-color: #05040400;
+    border-style: hidden;
+}
+.img-1{
+    width: 100%; 
+    height: 100%;
+    object-fit: contain;
+}
+.img-1:hover{
+    transform: scale(1.1);
+}
+.buscador{
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+.buscar{
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+.textbox-1{
+    width: 50%;
+    height: 1.7rem;
+}
+.lupa{
+    width: 3rem;
+    height: 2rem;
+}
+.img-3{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.contenedores-2{
+    width: 70%;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+.cont-2{
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+    height: auto;
+    background: linear-gradient(to bottom, #427D9D,#9BBEC8, #DDF2FD);
+    margin: 0.5rem;
+}
+.cont-2:hover{
+    background: linear-gradient(to top, #427D9D,#9BBEC8, #DDF2FD); 
+}
+.titulo-3{
+    display: flex;
+    flex-flow: row;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    justify-content: center;
+}
+.content-5{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+    width: 100%;
+}
+.imagen-3{
+    display: flex;
+    width: 50%;
+    height: auto;
+    justify-content: center;
+}
+.texto{
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction:column;
+}
+.texto-2{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+.botones{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.boton-1{
+    border: 1px solid black;
+    border-radius:1rem;
+    width: 50%;
+    height: 2.5rem;
+    background-color: #427D9D;
+    margin-bottom: 2%;
+}
+.boton-2{
+    border: 1px solid black;
+    border-radius:1rem;
+    width: 50%;
+    height: 2.5rem;
+    background-color:#DDF2FD;
+}
+.boton-1:hover{
+    transform: scale(1.1);
+}
+.boton-2:hover{
+    transform: scale(1.1);
+}
+.imagen-4{
+    height: 80%;
+    height: 80%;
+}
+.regresar{
+    width: 30%;
+    height: 3rem;
+}
+.descripcion{
+    width: 90%;
+    text-align: justify;
+}
+.content-6{
+    width: 80%;
+    height: auto;
+    margin-left:10% ;
+    display: flex;
+    flex-direction: column;
+    background-color: #9BBEC8;
+}
+.lista{
+    display: flex;
+    flex-direction: row;
+    border-style: hidden;
+    border-bottom-width:1px ;
+    border-bottom-style: dashed;
+    border-bottom-color:#164863 ;
+}
+.lista-2{
+    display: flex;
+    flex-direction: row;
+    border-style: hidden;
+    border: 1px solid #164863;
+    color: #DDF2FD;
+}
+.con-1,.con-3{
+    width: 25%;
+    max-height: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.con-4{
+    width: 50%;
+    max-height: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.con-2{
+    width: 50%;
+    max-height: 8rem;
+    display: flex;
+    align-items: center;
+}
+.imagen-5{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content-7{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+.content-8{
+    width: 80%;
+    height: auto;
+    margin-left:10% ;
+    display: flex;
+    flex-direction: column;
+    background-color: #164863;
+}
+
+.con-5{
+    width: 100%;
+    max-height: 8rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #DDF2FD;
+}
+.boton-3{
+    border: 1px solid black;
+    border-radius:1rem;
+    width: 20%;
+    height: 2rem;
+    background-color:#427D9D;
+    color: #DDF2FD;
+}
+.boton-3:hover{
+    transform: scale(1.1);
+    background-color: #DDF2FD;
+    color: #164863;
+}
+.comprar-2{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.content-11{
+    width: 70%;
+    border:1px solid #164863;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #9BBEC8;
+    margin-bottom: 1rem;
+}
+.form-2{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    align-items: center;
+    color: #164863;
+}
+.button-5{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    width: 50%;
+    height: 1.7rem;
+    background-color: #427D9D;
+    color: #DDF2FD;    
+}
+.button-5:hover{
+    background-color: #DDF2FD;
+    color: #427D9D;
+    transform: scale(1.1);
+}
+.texto-5{
+    color: #164863;
+}
+.text-box-2{
+    width: 50%;
+    height: 1.5rem;
+    border-radius: 0.7rem;
+    border-style: hidden;
+    margin-top: 0.7rem;
+    margin-bottom: 0.7rem;
+}
+.caja{
+    display: flex;
+    justify-content: center;
+    width:100% ;
+}
+.button-6{
+    color: #9BBEC8;
+    width: 50%;
+    height: 4rem;
+    border: 1px solid #164863;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+    background-color:#295c77;
+}
+.button-6:hover{
+    color: #295c77;
+    background-color: #9BBEC8;
+}
+.button-7{
+    color: #164863;
+    width: 50%;
+    height: 5rem;
+    border: 1px solid #164863;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    background-color:#9BBEC8;
+}
+.direccion{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+.calle{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.caja-2{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+.caja-4{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.box{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+}
+.boton{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.boton-6{
+    border: 1px solid black;
+    border-radius:1rem;
+    width: 18%;
+    height: 2.5rem;
+    background-color:#295c77;
+    color: #DDF2FD;
+    margin: 1rem;
+}
+select {
+    background-color: #164863; /* Cambia este valor al color deseado */
+    color: #f5f5f5; /* Cambia este valor al color deseado para el texto */
+    
+    font-size: large;
+    border: 1px solid #164863;
+  }
+  .boton-4{
+        height: 50%; 
+        background-color: #164863;
+        color: white;
+        margin-right: 0.3rem;
+}
+.boton-5{
+    height: 50%; 
+    background-color: #164863;
+    color: white;
+    margin-left: 0.3rem;
+}
+footer{
+    width: 100%;
+    height: 4rem;
+    background-color: #164863;
+    margin: 0%;
+    display: flex;
+    flex-flow:row nowrap;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    margin-top: auto;
+}
+@media (max-width: 280px){
+    .imagen-2{
+        width: 2rem;
+    }
+    .title-4{
+        font-size: 0.75rem;
+    }
+    select{
+        font-size: small;
+        width: 4rem;
+    }
+    .CarCompra{
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 0.7rem;
+    }
+    .title-5 {
+        font-size: 0.7rem;
+    }
+    .descripcion {
+        font-size: 0.7rem;
+    }
+    .regresar{
+        height: 2rem;
+    }
+    .lupa{
+        width: 2rem;
+        height: 2rem;
+    }
+    .textbox-1 {
+        width: 50%;
+        height: 1rem;
+        font-size: 0.7rem;
+    }
+    .buscador{
+        width: 100%;
+        height: auto;
+        margin-top: 0rem;
+    }
+    .content-5{
+        margin-top: 0rem;
+    }
+    p{
+        font-size: 0.7rem;
+    }
+    .boton-1,.boton-2{
+        width: 100%;
+        height: 1.7rem;
+        font-size: 0.6rem;
+    }
+    /*aqui inicia la pagina principal*/
+    .title-2 {
+        font-size: 2rem;
+    }
+    .title-3 {
+        font-size: 0.9rem;
+        text-shadow: 0.5px 0.5px 0.5px rgb(255, 255, 255);
+    }
+    .cont-1{
+        width: 4rem;
+    }
+    .contenedores {
+        width: 90%;
+    }
+    .titulo-3{
+        font-size: 0.4rem;
+    }
+    footer{
+        font-size: small;
+    }
+    .cont-2{
+        width: 6rem;
+    }
+    .contenedores-2 {
+        width: 90%;
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    /*inicio de carrito*/
+    .con-1 {
+        width: 25%;
+        max-height: 3rem;
+    }
+    .prod-1 {
+        font-size: 0.6rem;
+        height: 1.2rem;
+        margin: 0%;
+        margin-bottom: 0.5rem;
+    }
+    .con-2{
+        width: 5+0%;
+        margin-right: 0.5rem;
+    }
+    .eliminar{
+        font-size: 0.6rem;
+    }
+    .con-3{
+        max-height:3rem ;
+        width: 35%;
+    }
+    .boton-4,.boton-5{
+        height: 40%;
+        width: 20%;
+        font-size: 0.4rem;
+    }
+    .boton-4{
+        margin-right: 0rem;
+    }
+
+    .boton-3{
+        width: 50%;
+        height: 1.7rem;
+        font-size: 0.2rem;
+    }
+    .texto-2{
+        font-size: 0.5rem;
+    }
+    h4{
+        margin-top: 0px;
+        font-size: 0.7rem;
+    }
+    
+}
+@media (min-width: 300px) and (max-width: 767px) {}
+@media (min-width: 768px) and (max-width: 1024px) {}
