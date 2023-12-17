@@ -11,7 +11,7 @@ $codigoP=$_POST['codigo-postal'];
 $estado=$_POST['estado'];
 $numerot=$_POST['numerot'];
 
-include('conexion.php');
+include('../conexion.php');
 $id=$_SESSION['id'];
 $consulta="INSERT into direcciones(id_usuario,calle,colonia,codigoPostal,estado,numeroExterior,numeroTelefonico)
 values(:id,:calle,:colonia,:codigoP,:estado,:numeroE,:numerot)";

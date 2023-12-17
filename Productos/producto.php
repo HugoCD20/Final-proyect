@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Dreams</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <script>
     function ejecutarAccion() {
       var select = document.getElementById("menuDesplegable");
@@ -13,10 +13,10 @@
         case 'opcion1':
           break;
         case 'opcion2':
-            window.location.href = 'perfil.php';
+            window.location.href = '../Perfil/perfil.php';
           break;
         case 'opcion3':
-          window.location.href = 'Cerrar-sesion.php';
+          window.location.href = '../Cerrar-sesion.php';
           break;
         default:
           break;
@@ -29,18 +29,19 @@
         <div class="content-10">
             <div class="content-4">
                 <div class="imagen-2">
-                   <a href="index.php"><img class="img-2" src="image/logo.png" alt="logo"></a> 
+                   <a href="../index.php"><img class="img-2" src="../image/logo.png" alt="logo"></a> 
                 </div>
-                <a href="index.php"><h4 class="title-4">Digital Dreams</h4></a> 
+                <a href="../index.php"><h4 class="title-4">Digital Dreams</h4></a> 
             </div>
             <div class="content-1">
                 <div class="carrito">
-                    <a href="Carrito.php"><img class="CarCompra" src="image/Carrito.png" alt="carrito"></a>
+                    <a href="../Carrito/Carrito.php"><img class="CarCompra" src="../image/Carrito.png" alt="carrito"></a>
                 </div>
                 <?php 
                 session_start();
+                $_SESSION['pagina']=3;
                 if (!isset($_SESSION['id'])){
-                    echo "<a class='menu' href='login.php'><div class='menu'><h1 class='title-1'>Iniciar sesión</h1></div></a>";
+                    echo "<a class='menu' href='../Login-register/login.php'><div class='menu'><h1 class='title-1'>Iniciar sesión</h1></div></a>";
                 }else{
                     echo "<select id='menuDesplegable' onchange='ejecutarAccion()'> 
                     <option value='' selected disabled>$_SESSION[nombre]</option>
@@ -55,13 +56,13 @@
         <div class="content-2">
             <div class="buscador">
                 <div class="regresar">
-                    <a href="vista-productos.php"><button><img class="img-3" src="image/regreso.png" alt=""></button></a>
+                    <a href="vista-productos.php"><button><img class="img-3" src="../image/regreso.png" alt=""></button></a>
                 </div>
                 <div class="buscar"></div>
             </div>
             <div class="content-5">
                 <?php
-                    include("conexion.php");
+                    include("../conexion.php");
                     if($_SESSION['id-producto']==null){
                         $id=$_POST['id'];
                         $_SESSION['id-producto']=$id;
@@ -77,7 +78,7 @@
                             echo "
                             <div class='imagen-3'>
                                 <div class='imagen-4'>
-                                    <img class='img-3' src='$registro[imagen]' alt=''>
+                                    <img class='img-3' src='../$registro[imagen]' alt=''>
                              </div>
                             </div>
                             <div class='texto'>
@@ -91,7 +92,7 @@
                                 <div class='carro'>";
                                     if (!isset($_SESSION['id'])){
                                         echo " <div>
-                                        <a href='login.php'><button class='boton-1'>Añadir al carrito.</button></a>
+                                        <a href='../Login-register/login.php'><button class='boton-1'>Añadir al carrito.</button></a>
                                     </div>
                                 </div>";
                                     }else{
@@ -103,10 +104,10 @@
                                     }
                                     if (!isset($_SESSION['id'])){
                                         echo "<div class='comprar'>
-                                      <a class='boton-2' href='login.php'><button class='boton-2'>Comprar ahora.</button></a>
+                                      <a class='boton-2' href='../Login-register/login.php'><button class='boton-2'>Comprar ahora.</button></a>
                                     </div>";
                                     }else{
-                                        echo "<form class='comprar' action='selecccionar-direccion.html' method='POST'>
+                                        echo "<form class='comprar' action='../Carrito/seleccionar-direccion.php' method='POST'>
                                         <input type='hidden' name='id' value='$registro[id]'>
                                       <button class='boton-2'>Comprar ahora.</button>
                                     </form>";

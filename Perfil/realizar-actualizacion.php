@@ -3,7 +3,7 @@ $id=$_SESSION['id'];
 $nombre=$_POST['nombre'];
 $correo=$_POST['correo'];
 $contrasena=$_POST['contrasena'];
-include('conexion.php');
+include('../conexion.php');
 
 if(strlen($nombre)>200 or strlen($correo)>200 or strlen($contrasena)>200){
     header('location:perfil.php');

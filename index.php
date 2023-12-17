@@ -13,7 +13,7 @@
         case 'opcion1':
           break;
         case 'opcion2':
-            window.location.href = 'perfil.php';
+            window.location.href = 'Perfil/perfil.php';
           break;
         case 'opcion3':
           window.location.href = 'Cerrar-sesion.php';
@@ -35,14 +35,15 @@
             </div>
             <div class="content-1">
                 <div class="carrito">
-                    <a href="Carrito.php"><img class="CarCompra" src="image/Carrito.png" alt="carrito"></a>
+                    <a href="Carrito/Carrito.php"><img class="CarCompra" src="image/Carrito.png" alt="carrito"></a>
                 </div>
                 <?php 
                 session_start();
+                $_SESSION['pagina']=1;
                 $_SESSION['tipo']=null;
                 $_SESSION['id-producto']=null;
                 if (!isset($_SESSION['id'])){
-                    echo "<a class='menu' href='login.php'><div class='menu'><h1 class='title-1'>Iniciar sesión</h1></div></a>";
+                    echo "<a class='menu' href='Login-register/login.php'><div class='menu'><h1 class='title-1'>Iniciar sesión</h1></div></a>";
                 }else{
                     echo "<select id='menuDesplegable' onchange='ejecutarAccion()'> 
                     <option value='' selected disabled>$_SESSION[nombre]</option>
@@ -64,7 +65,7 @@
             <div class="content-3">
                 <div class="contenedores">
                     <div class="cont-1">
-                        <form class="imagen-1" action="vista-productos.php" method="POST">
+                        <form class="imagen-1" action="Productos/vista-productos.php" method="POST">
                             <input type="hidden" name="tipo" value="laptops">
                                 <button>
                                     <img class="img-1" src="image/laptop.png" alt="laptop">
@@ -73,7 +74,7 @@
                             <div class='titulo-3'><h2 style="color:#164863;">Laptops</h2></div>
                     </div>
                     <div class="cont-1"> 
-                        <form class="imagen-1" action="vista-productos.php" method="POST">
+                        <form class="imagen-1" action="Productos/vista-productos.php" method="POST">
                             <input type="hidden" name="tipo" value="audifonos">
                                 <button>
                                     <img class="img-1" src="image/audifonos.png" alt="laptop">
@@ -82,7 +83,7 @@
                             <div class='titulo-3'><h2 style="color:#164863;">Audifonos</h2></div>
                     </div>
                     <div class="cont-1">
-                        <form class="imagen-1" action="vista-productos.php" method="POST">
+                        <form class="imagen-1" action="Productos/vista-productos.php" method="POST">
                             <input type="hidden" name="tipo" value="perifericos">
                                 <button>
                                     <img class="img-1" src="image/kit.png" alt="laptop">
@@ -91,7 +92,7 @@
                             <div class='titulo-3'><h2 style="color:#164863;">Perifericos</h2></div>
                     </div>
                     <div class="cont-1">
-                        <form class="imagen-1" action="vista-productos.php" method="POST">
+                        <form class="imagen-1" action="Productos/vista-productos.php" method="POST">
                             <input type="hidden" name="tipo" value="computadoras">
                                 <button>
                                     <img class="img-1" src="image/pc.png" alt="laptop">
@@ -100,7 +101,7 @@
                             <div class='titulo-3'><h2 style="color:#164863;">Computadoras de escritorio</h2></div>
                     </div>
                     <div class="cont-1">
-                        <form class="imagen-1" action="vista-productos.php" method="POST">
+                        <form class="imagen-1" action="Productos/vista-productos.php" method="POST">
                             <input type="hidden" name="tipo" value="monitores">
                                 <button>
                                     <img class="img-1" src="image/monitor.png" alt="laptop">
@@ -109,7 +110,7 @@
                             <div class='titulo-3'><h2 style="color:#164863;">Monitores</h2></div>
                     </div>
                     <div class="cont-1">
-                        <form class="imagen-1" action="vista-productos.php" method="POST">
+                        <form class="imagen-1" action="Productos/vista-productos.php" method="POST">
                             <input type="hidden" name="tipo" value="componentes">
                                 <button>
                                     <img class="img-1" src="image/grafica.png" alt="laptop">

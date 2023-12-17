@@ -22,7 +22,7 @@
 
     if(!empty($Correo) && !empty($Contraseña) && !empty($Contra) && !empty($Nusuario) && $valida && $cor && $largo){
         try {
-            include('conexion.php');
+            include('../conexion.php');
             $nombreU = $_POST['nombre'];
             $correo = $_POST['correo'];
             $contrasena = $_POST['contrasena'];
@@ -42,7 +42,7 @@
         
     } 
 }else{
-    header("location: index.php");
+    header("location: ../index.php");
 }
     
 ?>

@@ -1,8 +1,10 @@
 <?php 
 session_start();
 if(!isset($_SESSION['id'])){
-    header('location:index.php');
+    header('location:../index.php');
     exit();
+}else{
+    $_SESSION['pagina']=7;
 }
 ?>
 <!DOCTYPE html>
@@ -11,7 +13,7 @@ if(!isset($_SESSION['id'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Dreams</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <script>
     function ejecutarAccion() {
       var select = document.getElementById("menuDesplegable");
@@ -20,10 +22,10 @@ if(!isset($_SESSION['id'])){
         case 'opcion1':
           break;
         case 'opcion2':
-            window.location.href = 'index.php';
+            window.location.href = '../index.php';
           break;
         case 'opcion3':
-          window.location.href = 'Cerrar-sesion.php';
+          window.location.href = '../Cerrar-sesion.php';
           break;
         default:
           break;
@@ -36,13 +38,13 @@ if(!isset($_SESSION['id'])){
         <div class="content-10">
             <div class="content-4">
                 <div class="imagen-2">
-                    <a href="index.php"><img class="img-2" src="image/logo.png" alt="logo"></a> 
+                    <a href="../index.php"><img class="img-2" src="../image/logo.png" alt="logo"></a> 
                 </div>
-                <a href="index.php"><h4 class="title-4">Digital Dreams</h4></a> 
+                <a href="../index.php"><h4 class="title-4">Digital Dreams</h4></a> 
             </div>
             <div class="content-1">
                 <div class="carrito">
-                    <a href="Carrito.php"><img class="CarCompra" src="image/Carrito.png" alt="carrito"></a>
+                    <a href="../Carrito/Carrito.php"><img class="CarCompra" src="../image/Carrito.png" alt="carrito"></a>
                 </div>
                 <?php 
                 if (!isset($_SESSION['id'])){
@@ -62,7 +64,7 @@ if(!isset($_SESSION['id'])){
             <div class="buscador">
             <div class="regreso-2" style="width: 100%; margin-bottom: 1rem;">
                 <div class="regresar">
-                    <a href="perfil.php"><button><img class="img-3" src="image/regreso.png" alt=""></button></a>
+                    <a href="perfil.php"><button><img class="img-3" src="../image/regreso.png" alt=""></button></a>
                 </div>
             </div>
         </div>
@@ -72,7 +74,7 @@ if(!isset($_SESSION['id'])){
                 <div class="caja">
                     <div class="form-2">
                     <?php
-                        include('conexion.php');
+                        include('../conexion.php');
                         $id=$_SESSION['id'];
                         $consulta="select * from direcciones where id_usuario=:id";
                         $stmt=$conexion->prepare($consulta);

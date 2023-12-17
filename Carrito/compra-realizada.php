@@ -1,12 +1,13 @@
 <?php 
 session_start();
 if(!isset($_SESSION['id'])){
-    header('location:index.php');
+    header('location:../index.php');
     exit();
 }
+$_SESSION['pagina']=5;
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {
-        include('conexion.php');
+        include('../conexion.php');
         $idUsuario = $_SESSION['id'];
         $consulta = "SELECT * FROM carrito where id_usuario=:idUsuario";
         $stmt = $conexion->prepare($consulta);
@@ -56,7 +57,7 @@ header("location: Carrito.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Dreams</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <script>
     function ejecutarAccion() {
       var select = document.getElementById("menuDesplegable");
@@ -81,13 +82,13 @@ header("location: Carrito.php");
         <div class="content-10">
             <div class="content-4">
                 <div class="imagen-2">
-                   <a href="index.php"><img class="img-2" src="image/logo.png" alt="logo"></a> 
+                   <a href="../index.php"><img class="img-2" src="../image/logo.png" alt="logo"></a> 
                 </div>
-                <a href="index.php"><h4 class="title-4">Digital Dreams</h4></a> 
+                <a href="../index.php"><h4 class="title-4">Digital Dreams</h4></a> 
             </div>
             <div class="content-1">
                 <div class="carrito">
-                    <a href="Carrito.php"><img class="CarCompra" src="image/Carrito.png" alt="carrito"></a>
+                    <a href="Carrito.php"><img class="CarCompra" src="../image/Carrito.png" alt="carrito"></a>
                 </div>
                 <?php 
                 if (!isset($_SESSION['id'])){
@@ -107,10 +108,9 @@ header("location: Carrito.php");
             <div class="buscador">
                 <div class="regresar">
                 </div>
-                <form class="buscar" action="">
-                    <input class="textbox-1" type="text" name="Buscador">
-                    <button class="lupa"><img class="img-3" src="image/lupa.png" alt="lupa"></button>
-                </form>
+                <div class="buscar">
+                    
+                </div>
             </div>
             <div class="content-5">
                 <div class="content-6" style="width: 60%; margin-left:20%;">
@@ -119,7 +119,7 @@ header("location: Carrito.php");
                     </div>
                     <p style="color: #164863; margin-left: 35%;">Tu compra se realizó correctamete</p>
                     <div class="boton">
-                        <a class="boton-6" href="index.php"><button style="color: #DDF2FD;">Inicio</button></a>
+                        <a class="boton-6" href="../index.php"><button style="color: #DDF2FD;">Inicio</button></a>
                     </div>
                 </div>
                 

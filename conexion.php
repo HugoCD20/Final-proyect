@@ -1,5 +1,5 @@
 <?php 
-$servidor = "localhost:3307";
+$servidor = "localhost:3308";
 $usuario = "root";
 $password = "";
 $conexion = new PDO("mysql:host=$servidor;dbname=digitaldreams", $usuario, $password);

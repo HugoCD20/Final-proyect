@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if(isset($_SESSION['id'])){
-    header('location:index.php');
+    header('location: ../index.php');
     exit();
 }
 ?>
@@ -11,16 +11,16 @@ if(isset($_SESSION['id'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Dreams</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <header>
         <div class="content-10">
             <div class="content-4">
                 <div class="imagen-2">
-                   <a href="index.php"><img class="img-2" src="image/logo.png" alt="logo"></a> 
+                   <a href="../index.php"><img class="img-2" src="../image/logo.png" alt="logo"></a> 
                 </div>
-                <a href="index.php"><h4 class="title-4">Digital Dreams</h4></a> 
+                <a href="../index.php"><h4 class="title-4">Digital Dreams</h4></a> 
             </div>
             <div class="content-1">
                 
@@ -33,7 +33,7 @@ if(isset($_SESSION['id'])){
             <div class="buscador">
                 <div class="regreso-2" style="width: 100%; margin-bottom: 1rem;">
                     <div class="regresar">
-                        <a href="index.php"><button><img class="img-3" src="image/regreso.png" alt=""></button></a>
+                        <a href="../index.php"><button><img class="img-3" src="../image/regreso.png" alt=""></button></a>
                     </div>
                 </div>
             </div>
@@ -73,7 +73,7 @@ if(isset($_SESSION['id'])){
                             ?>
 
                             <p class="texto-5">¿No tienes una cuenta? <a href="register.php"> has click aqui</a></p>
-                            <input class="button-5" type="submit" value="Registrarse">
+                            <input class="button-5" type="submit" value="Ingresar">
                             <?php 
                                 if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     include('validar-login.php');

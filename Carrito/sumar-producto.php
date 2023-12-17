@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("conexion.php");
+    include("../conexion.php");
     $id=$_POST['id'];
     $idCarrito=$_SESSION['id'];
     $consulta="select * from carrito where id_usuario=:idCarrito and id_producto=:id";

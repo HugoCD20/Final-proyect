@@ -2,7 +2,7 @@
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         session_start();
         try {
-            include('conexion.php');
+            include('../conexion.php');
             $id = $_POST['id'];
             $idUsuario = $_SESSION['id'];
             $consulta = "SELECT * FROM carrito where id_usuario=:idUsuario AND id_producto=:id";
@@ -20,7 +20,7 @@
                     $stmt3->bindParam(":incremento",$incremento);
                     $stmt3->bindParam(":id2",$id2);
                     $stmt3->execute();
-                    header("location: Carrito.php");
+                    header("location: ../Carrito/Carrito.php");
                 }
             } else {
                 $id = $_POST['id'];
@@ -31,7 +31,7 @@
                 $stmt2->bindParam(':idUsuario', $idUsuario);
                 $stmt2->bindParam(':id', $id);
                 $stmt2->execute();
-                header("location: Carrito.php");
+                header("location: ../Carrito/Carrito.php");
             }
 
         } catch (PDOException $e) {
@@ -40,7 +40,7 @@
           
     
 }else{
-    header("location: Carrito.php");
+    header("location: ../Carrito/Carrito.php");
 }
     
 ?>

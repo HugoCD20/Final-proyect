@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
     if(!empty($Contraseña) && !empty($Correo) && $largo && $cor){
         try {
-            include("conexion.php");
+            include("../conexion.php");
             $correo = $_POST['correo'];
             $contrasena = $_POST['contrasena'];
             $conexion->exec("SET CHARACTER SET utf8");
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 while ($registro = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     $_SESSION['id']=$registro['id'];
                     $_SESSION['nombre']=$registro['Nombre'];
-                    header("location:index.php");
+                    header("location:../index.php");
                 }
             } else {
                 echo '<center> <p class="error">Contraseña o correo electrónico incorrectos</p> </center>';
@@ -38,6 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
 }else{
-    header("location:index.php");
+    header("location: ../index.php");
 }
 ?>
