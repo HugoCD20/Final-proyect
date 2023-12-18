@@ -64,7 +64,18 @@ if(!isset($_SESSION['id'])){
             <div class="buscador">
             <div class="regreso-2" style="width: 100%; margin-bottom: 1rem;">
                 <div class="regresar">
-                    <a href="perfil.php"><button><img class="img-3" src="../image/regreso.png" alt=""></button></a>
+                    <?php
+                        if(isset($_SESSION['pag'])){
+                            switch($_SESSION['pag']){
+                                case 2:
+                                    echo '<a href="../Carrito/seleccionar-direccion.php"><button><img class="img-3" src="../image/regreso.png" alt=""></button></a>';
+                                    break;
+                                case 1:
+                                    echo '<a href="perfil.php"><button><img class="img-3" src="../image/regreso.png" alt=""></button></a>';
+                                    break;
+                            }
+                        }
+                    ?>
                 </div>
             </div>
         </div>

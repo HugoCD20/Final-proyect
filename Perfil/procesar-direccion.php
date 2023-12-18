@@ -24,5 +24,14 @@ $stmt -> bindParam(':estado',$estado);
 $stmt -> bindParam(':numeroE',$numeroE);
 $stmt -> bindParam(':numerot',$numerot);
 $stmt->execute();
-header('location:direcciones.php');
+if(isset($_SESSION['pag'])){
+    switch($_SESSION['pag']){
+        case 2:
+            header('location: ../Carrito/seleccionar-direccion.php');
+            break;
+        case 1:
+            header('location:direcciones.php');
+            break;
+    }
+}
 ?>

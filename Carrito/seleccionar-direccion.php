@@ -1,5 +1,6 @@
 <?php 
 session_start();
+$_SESSION['pag']=2;
 if(!isset($_SESSION['id'])){
     header('location:../index.php');
     exit();
@@ -34,7 +35,7 @@ if(!isset($_SESSION['id'])){
                 <div class="buscar">
                 </div>
             </div>
-            
+            <form action="verificar-direccion.php" method="POST">
             <div class="content-5">
                 <div class="content-6">
                 <div class="titulo-1">
@@ -61,6 +62,17 @@ if(!isset($_SESSION['id'])){
                             echo '<center> <p class="error">No hay direcciones agregadas</p> </center>';
                         }
                         ?>
+                        <div class="comprar-2" style="color:red;">
+                            <?php 
+                                if(isset($_SESSION['error'])){
+                                    echo $_SESSION['error'];
+                                    $_SESSION['error']=null;
+                                }
+                            ?>
+                        </div>
+                        <div class="comprar-2">
+                           <button class="boton-3" name ="valor" value="agregar" >Agregar dirección</button>
+                        </div>
                     </div>                
                 </div>
                 </div>
@@ -72,17 +84,15 @@ if(!isset($_SESSION['id'])){
                         <div class="con-4">
                             <p>Producto(<?php echo $_SESSION['nproductos'];?>):      $<?php echo $_SESSION['precio'];?></p>
                         </div>
-                        <div class="con-4"><p>Envio:    $100.00</p></div>
-                        <div class="con-4"><p><strong>Total:     $<?php echo $_SESSION['precio']+100;?></strong></p></div>
+                        <div class="con-4"><p>Envio: $100.00</p></div>
+                        <div class="con-4"><p><strong>Total: $<?php echo $_SESSION['precio']+100;?></strong></p></div>
                     </div>
                     <div class="comprar-2">
-                        <a class="boton-3" href="metodo-pago.php"><button>Continuar compra</button></a>
+                       <button class="boton-3" name="valor" value="continuar compra">Continuar compra</button>
                     </div>
-                </div>
-            
-            
+                </div>           
             </div>
-            
+            </form>
         </div>
     </main>
     <footer>Copyright © 2023 · Digital Dreams</footer>
