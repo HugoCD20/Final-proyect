@@ -1,5 +1,5 @@
 <?php
-include('conexion.php');
+include('../conexion.php');
 $id=$_POST['id'];
 if($id==null){
     header('location:modificar-producto.php');

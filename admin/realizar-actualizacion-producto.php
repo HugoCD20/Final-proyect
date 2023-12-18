@@ -5,7 +5,7 @@ $descripcion=$_POST['descripcion'];
 $tipo2=$_POST['tipo'];
 $stock=$_POST['stock'];
 $precio=$_POST['precio'];
-include('conexion.php');
+include('../conexion.php');
 $ima = true;
 $imagen = '';
 

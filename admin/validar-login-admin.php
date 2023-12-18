@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
     if(!empty($Contraseña) && !empty($Correo) && $largo){
         try {
-            include("conexion.php");
+            include("../conexion.php");
             $correo = $_POST['correo'];
             $contrasena = $_POST['contrasena'];
             $conexion->exec("SET CHARACTER SET utf8");

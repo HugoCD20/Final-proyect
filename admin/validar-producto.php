@@ -60,7 +60,7 @@
         if(!empty($nombre) && !empty($descripcion) && !empty($tipo) && !empty($stock) && !empty($precio) && $ima && $largo){
         
             try {
-                include('conexion.php');
+                include('../conexion.php');
                 $consulta = "INSERT INTO productos (Nombre, Descripcion, tipo,stock,imagen,Precio) 
                             VALUES (:nombre, :descripcion, :tipos, :stock,:imagen,:precio)";
                 $stmt = $conexion->prepare($consulta);
