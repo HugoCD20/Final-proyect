@@ -81,6 +81,9 @@ if(!isset($_SESSION['id'])){
                                 case 7: 
                                     echo '<a href="../Perfil/direcciones.php"><button><img class="img-3" src="../image/regreso.png" alt=""></button></a>';
                                     break;
+                                default:
+                                    echo '<a href="../index.php"><button><img class="img-3" src="../image/regreso.png" alt=""></button></a>';
+                                    break;
                             }
                             $_SESSION['pagina']=6;
                         }
@@ -135,12 +138,14 @@ if(!isset($_SESSION['id'])){
                                 </div>";
                                 $_SESSION['nproductos']+=$registro['cantidad'];
                                 $_SESSION['precio']+=($registro['cantidad']*$registro2['Precio']);
+                                $_SESSION['carro']=true;
                                 }
                             } else {
                                 echo '<center> <p class="error">No hay productos disponibles</p> </center>';
                             }
                         }
                     } else {
+                        $_SESSION['carro']=false;
                         echo '<center> <p class="error">No hay productos disponibles</p> </center>';
                     }
                 ?>               
@@ -155,7 +160,7 @@ if(!isset($_SESSION['id'])){
                             <p>Producto(<?php echo $_SESSION['nproductos'];?>):      $<?php echo $_SESSION['precio'];?></p>
                         </div>
                         <div class="con-4"><p>Envio:    $100.00</p></div>
-                        <div class="con-4"><p><strong>Total:     $<?php echo $_SESSION['precio']+100;?></strong></p></div>
+                        <div class="con-4"><p><strong>Total:     $<?php  if($_SESSION['precio']+100!=100){echo $_SESSION['precio']+100;}else{echo "00.00";}?></strong></p></div>
                     </div>
                     <div class="comprar-2">
                         <a class="boton-3" href="seleccionar-direccion.php"><button>Continuar compra</button></a>

@@ -40,28 +40,110 @@ if(!isset($_SESSION['id'])){
                     <div class="titulo-1">
                         <h3 class="title-5">MÉTODO DE PAGO</h3>
                     </div>
-                    <form class="direccion" action="compra-realizada.php" method="POST">
+                    <form class="direccion" action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
                         <div class="calle">
                             <div class="div" style="width: 100%; display: flex;margin-left: 55%;">
                                 <label for="Ntarjeta">Número de tarjeta:</label></div>
-                                <input class="text-box-2" type="text" id="NTarjeta" name="NTarjeta" required>
+                                <input class="text-box-2" type="text" id="NTarjeta" name="NTarjeta">
+                                <?php 
+                                    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                                        if(isset($_POST['NTarjeta'])){
+                                            $tarjeta=$_POST['NTarjeta'];
+                                            if(empty($tarjeta)){
+                                                echo '<center> <p class="error">Ingresa una tarjeta</p> </center>';
+                                                $error=false;
+                                            }else{
+                                                $error=true;
+                                            }
+                                            $cantidad=strlen($tarjeta);
+                                            if($error){
+                                                if($cantidad<16 or $cantidad>16){
+                                                    echo '<center> <p class="error">No es una tarjeta valida</p> </center>';
+                                                    $error=false;
+                                                }else{
+                                                    $error=true;
+                                                }
+                                            }
+                                            
+                                        }
+                                        
+                                    }
+                                ?>
                         </div>
                         
                         <div class="caja-2">
                             <div class="box" style="align-items: end;">
                                 <div class="div" style="width: 100%; display: flex;justify-content:end; margin-right: 3.5rem;">
                                     <label for="Fecha">Fecha de vencimineto:</label></div>
-                                    <input class="text-box-2" type="text" id="Fecha" name="Fecha" required>
+                                    <input class="text-box-2" type="text" id="Fecha" name="Fecha">
+                                    <?php 
+                                        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                                            if(isset($_POST['Fecha'])){
+                                                $fecha=$_POST['Fecha'];
+                                                if(empty($fecha)){
+                                                    echo '<center> <p class="error">Ingresa una fecha de vencimiento</p> </center>';
+                                                    $error2=false;
+                                                }else{
+                                                    $error2=true;
+                                                }
+                                                $tamanio=strlen($fecha);
+                                                if($error2){
+                                                    if($tamanio<4 or $tamanio>4){
+                                                        echo '<center> <p class="error">La fecha no es valida </center>';
+                                                        $error2=false;
+                                                    }else{
+                                                        $error2=true;
+                                                    }
+                                                }
+                                                
+                                            }
+                                            
+                                        }
+                                    ?>
                             </div>
                             <div class="box">
                                 <div class="div" style="width: 100%; display: flex;justify-content:start;">
                                     <label for="codigo-seguridad">CVV:</label></div>
-                                    <input class="text-box-2" type="text" id="codigo-seguridad" name="codigo-seguridad" required>
+                                    <input class="text-box-2" type="text" id="codigo-seguridad" name="codigo-seguridad">
+                                    <?php 
+                                        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                                            if(isset($_POST['codigo-seguridad'])){
+                                                $codigo=$_POST['codigo-seguridad'];
+                                                if(empty($codigo)){
+                                                    echo '<center> <p class="error">coloca el codigo de seguridad</p> </center>';
+                                                    $error3=false;
+                                                }else{
+                                                    $error3=true;
+                                                }
+                                                $tamano=strlen($codigo);
+                                                if($error3){
+                                                    if($tamano<3 or $tamano>4){
+                                                        echo '<center> <p class="error">El codigo de seguridad no es valido</center>';
+                                                        $error3=false;
+                                                    }else{
+                                                        $error3=true;
+                                                    }
+                                                }
+                                                
+                                            }
+                                            
+                                        }
+                                    ?>
                             </div>
                         </div>
                         <div class="boton">
                             <button class="boton-6">Añadir</button>
                         </div>
+                            <?php 
+                                 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                                    if(isset($error)){
+                                        if($error && $error2 && $error3){
+                                            $_SESSION['metodo']=true;
+                                            header('location:compra-realizada.php');//me quede aquí falta resolver el por que se
+                                        }//se redirige a el carrito
+                                    }
+                                 }
+                            ?>
                         
                     </form>
                 </div>
@@ -74,7 +156,7 @@ if(!isset($_SESSION['id'])){
                             <p>Producto(<?php echo $_SESSION['nproductos'];?>):      $<?php echo $_SESSION['precio'];?></p>
                         </div>
                         <div class="con-4"><p>Envio:    $100.00</p></div>
-                        <div class="con-4"><p><strong>Total:     $<?php echo $_SESSION['precio']+100;?></strong></p></div>
+                        <div class="con-4"><p><strong>Total:     $<?php  if($_SESSION['precio']+100!=100){echo $_SESSION['precio']+100;}else{echo "00.00";}?></strong></p></div>
                     </div>
                 </div>
             

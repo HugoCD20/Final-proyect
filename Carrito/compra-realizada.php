@@ -5,50 +5,70 @@ if(!isset($_SESSION['id'])){
     exit();
 }
 $_SESSION['pagina']=5;
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    try {
+   if(isset($_SESSION['metodo']) && isset($_SESSION['direccion'])){ 
+    if($_SESSION['pagina']==6){
+        try {
+            include('../conexion.php');
+            $idUsuario = $_SESSION['id'];
+            $consulta = "SELECT * FROM carrito where id_usuario=:idUsuario";
+            $stmt = $conexion->prepare($consulta);
+            $stmt->bindParam(':idUsuario', $idUsuario);
+            $stmt->execute();
+            if ($stmt->rowCount() > 0) {
+                while ($registro = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    $id_producto=$registro['id_producto'];
+                    $consulta2="SELECT * FROM productos where id=:id_producto";
+                    $stmt2=$conexion->prepare($consulta2);
+                    $stmt2->bindParam(":id_producto",$id_producto);
+                    $stmt2->execute();
+                    if ($stmt2->rowCount() > 0) {
+                        while ($registro2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
+                            $stock=$registro2['stock'];
+                            $stock -=$registro['cantidad'];
+                            $consulta3="UPDATE productos set stock=:stock where id=:id_producto";
+                            $stmt3=$conexion->prepare($consulta3);
+                            $stmt3->bindParam(":stock",$stock);
+                            $stmt3->bindParam(":id_producto",$id_producto);
+                            $stmt3->execute();
+                        }
+                    }
+                    $id=$registro['id'];
+                    $consulta4="DELETE FROM carrito where id=:id";
+                    $stmt4=$conexion->prepare($consulta4);
+                    $stmt4->bindParam(":id",$id);
+                    $stmt4->execute();
+
+                }
+            } 
+
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }else{
+        // aqui va el codigo para validar la compra directa
         include('../conexion.php');
-        $idUsuario = $_SESSION['id'];
-        $consulta = "SELECT * FROM carrito where id_usuario=:idUsuario";
-        $stmt = $conexion->prepare($consulta);
-        $stmt->bindParam(':idUsuario', $idUsuario);
+        $id_compra=$_SESSION['directa'];
+        $consulta="SELECT * FROM productos where id=:id_compra";
+        $stmt=$conexion->prepare($consulta);
+        $stmt->bindParam(":id_compra",$id_compra);
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
-            while ($registro = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $id_producto=$registro['id_producto'];
-                $consulta2="SELECT * FROM productos where id=:id_producto";
-                $stmt2=$conexion->prepare($consulta2);
-                $stmt2->bindParam(":id_producto",$id_producto);
-                $stmt2->execute();
-                if ($stmt2->rowCount() > 0) {
-                    while ($registro2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
-                        $stock=$registro2['stock'];
-                        $stock -=$registro['cantidad'];
-                        $consulta3="UPDATE productos set stock=:stock where id=:id_producto";
-                        $stmt3=$conexion->prepare($consulta3);
-                        $stmt3->bindParam(":stock",$stock);
-                        $stmt3->bindParam(":id_producto",$id_producto);
-                        $stmt3->execute();
-                    }
-                }
-                $id=$registro['id'];
-                $consulta4="DELETE FROM carrito where id=:id";
-                $stmt4=$conexion->prepare($consulta4);
-                $stmt4->bindParam(":id",$id);
-                $stmt4->execute();
-
+            while ($registro2 = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $stock=$registro2['stock'];
+                $stock -=1;
+                $consulta3="UPDATE productos set stock=:stock where id=:id_compra";
+                $stmt3=$conexion->prepare($consulta3);
+                $stmt3->bindParam(":stock",$stock);
+                $stmt3->bindParam(":id_compra",$id_compra);
+                $stmt3->execute();
             }
-        } else {
         }
-
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
+        $_SESSION['directa']=null;
     }
-      
+        $_SESSION['metodo']=null;
+        $_SESSION['direccion']=null;
+      }
 
-}else{
-header("location: Carrito.php");
-}
 
 ?>
 <!DOCTYPE html>

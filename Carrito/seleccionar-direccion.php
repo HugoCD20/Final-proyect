@@ -1,10 +1,33 @@
-<?php 
+<?php //validar la estadia de la pagina. verifica si inicio sesion y si estuvo en el carrito
 session_start();
 $_SESSION['pag']=2;
 if(!isset($_SESSION['id'])){
     header('location:../index.php');
     exit();
 }
+if(isset($_SESSION['pagina'])){//valida de que pagina viene
+    switch($_SESSION['pagina']){
+        case 6:
+            if(isset($_SESSION['carro'])){//valida si visito antes el carrito
+                if(!$_SESSION['carro']){//valida si el carrito está vacio
+                    header('location:Carrito.php');
+                }
+            }else{
+                header('location:Carrito.php');
+            }
+            break;
+        case 3:
+            if(isset($_POST['id'])){
+                $_SESSION['directa']=$_POST['id'];
+            }            
+            include('consulta.php');
+            break;
+    }
+   
+}else{
+    header('location:index.php');
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -30,7 +53,16 @@ if(!isset($_SESSION['id'])){
         <div class="content-2">
             <div class="buscador">
                 <div class="regresar">
-                    <a href="Carrito.php"><button><img class="img-3" src="../image/regreso.png" alt=""></button></a>
+                    <?php
+                        switch($_SESSION['pagina']){
+                            case 6:
+                                echo '<a href="Carrito.php"><button><img class="img-3" src="../image/regreso.png" alt=""></button></a>';
+                                break;
+                            default:
+                                echo '<a href="../Productos/producto.php"><button><img class="img-3" src="../image/regreso.png" alt=""></button></a>';
+                                 break;
+                        }
+                    ?>
                 </div>
                 <div class="buscar">
                 </div>
@@ -85,7 +117,7 @@ if(!isset($_SESSION['id'])){
                             <p>Producto(<?php echo $_SESSION['nproductos'];?>):      $<?php echo $_SESSION['precio'];?></p>
                         </div>
                         <div class="con-4"><p>Envio: $100.00</p></div>
-                        <div class="con-4"><p><strong>Total: $<?php echo $_SESSION['precio']+100;?></strong></p></div>
+                        <div class="con-4"><p><strong>Total: $<?php  if($_SESSION['precio']+100!=100){echo $_SESSION['precio']+100;}else{echo "00.00";}?></strong></p></div>
                     </div>
                     <div class="comprar-2">
                        <button class="boton-3" name="valor" value="continuar compra">Continuar compra</button>
