@@ -97,19 +97,26 @@ $_SESSION['pagina']=2;
                             $stmt = $conexion->prepare($consulta);
                             $stmt->bindParam(":tipo",$tipo);
                             $stmt->execute();
+                            $contador=0;
                             if ($stmt->rowCount() > 0) {
                                 while ($registro = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                    echo "<div class='cont-2'>
-                                        <form class='imagen-1' action='producto.php' method='POST'>
-                                            <input type='hidden' name='id' value='$registro[id]'>
-                                                <button>
-                                                    <img class='img-1' src='../$registro[imagen]' alt='laptop'>
-                                                </button>
-                                            </form>
-                                        <div class='titulo-3' style='text-align:center;'><h2>$registro[Nombre]</h2></div>
-                                    </div>";
+                                    if($registro['stock']>0){
+                                        echo "<div class='cont-2'>
+                                            <form class='imagen-1' action='producto.php' method='POST'>
+                                                <input type='hidden' name='id' value='$registro[id]'>
+                                                    <button>
+                                                        <img class='img-1' src='../$registro[imagen]' alt='laptop'>
+                                                    </button>
+                                                </form>
+                                            <div class='titulo-3' style='text-align:center;'><h2>$registro[Nombre]</h2></div>
+                                        </div>";
+                                        $contador+=1;
+                                    }
                                 }
                             } else {
+                                echo '<center> <p class="error">No hay productos disponibles</p> </center>';
+                            }
+                            if($contador==0){
                                 echo '<center> <p class="error">No hay productos disponibles</p> </center>';
                             }
                         ?>                    

@@ -44,7 +44,7 @@ if(!isset($_SESSION['id'])){
                         <div class="calle">
                             <div class="div" style="width: 100%; display: flex;margin-left: 55%;">
                                 <label for="Ntarjeta">Número de tarjeta:</label></div>
-                                <input class="text-box-2" type="text" id="NTarjeta" name="NTarjeta">
+                                <input class="text-box-2" type="text" id="NTarjeta" name="NTarjeta" placeholder='XXXX-XXXX-XXXX-XXXX'>
                                 <?php 
                                     if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         if(isset($_POST['NTarjeta'])){
@@ -72,39 +72,59 @@ if(!isset($_SESSION['id'])){
                         </div>
                         
                         <div class="caja-2">
-                            <div class="box" style="align-items: end;">
+                            <div class="boxx" style="align-items: end;">
                                 <div class="div" style="width: 100%; display: flex;justify-content:end; margin-right: 3.5rem;">
-                                    <label for="Fecha">Fecha de vencimineto:</label></div>
-                                    <input class="text-box-2" type="text" id="Fecha" name="Fecha">
+                                    <label for="Fecha">Fecha de vencimiento:</label></div>
+                                    <div style='display:flex; flex-direction:row background-color:blue;width:50%'>
+                                    <input style='margin-right:0.4rem;' class="text-box-2" type="text" id="Fecha" name="mes" placeholder='Mes'>
+                                    <input class="text-box-2" type="text" id="Fecha" name="año" placeholder='Año'>
+                                    </div>
                                     <?php 
                                         if ($_SERVER["REQUEST_METHOD"] === "POST") {
-                                            if(isset($_POST['Fecha'])){
-                                                $fecha=$_POST['Fecha'];
-                                                if(empty($fecha)){
-                                                    echo '<center> <p class="error">Ingresa una fecha de vencimiento</p> </center>';
+                                           if(isset($_POST['mes'])){
+                                            $mes=$_POST['mes'];
+                                            if(empty($mes)){
+                                                echo '<center> <p class="error">Ingresa un mes de vencimiento</p> </center>';
+                                                $error2=false;
+                                            }else{
+                                                $error2=true;
+                                                if(strlen($_POST['mes'])<2 || strlen($_POST['mes'])>2){
+                                                    echo '<center> <p class="error">No es un mes valido ejemplo: 01</p> </center>';
                                                     $error2=false;
                                                 }else{
                                                     $error2=true;
                                                 }
-                                                $tamanio=strlen($fecha);
-                                                if($error2){
-                                                    if($tamanio<4 or $tamanio>4){
-                                                        echo '<center> <p class="error">La fecha no es valida </center>';
+                                            }
+                                           }
+                                           if($error2){
+                                                if(isset($_POST['año'])){
+                                                    $año=$_POST['año'];
+                                                    if(empty($año)){
+                                                        echo '<center> <p class="error">Ingresa un año de vencimiento</p> </center>';
                                                         $error2=false;
                                                     }else{
                                                         $error2=true;
+                                                        if(strlen($_POST['año'])<2 || strlen($_POST['año'])>2){
+                                                            echo '<center> <p class="error">No es un año valido ejemplo: 23</p> </center>';
+                                                            $error2=false;
+                                                        }else{
+                                                            $error2=true;
+                                                        }
                                                     }
+                                                   
                                                 }
-                                                
                                             }
+                                           
                                             
                                         }
                                     ?>
+                                    
+
                             </div>
                             <div class="box">
                                 <div class="div" style="width: 100%; display: flex;justify-content:start;">
                                     <label for="codigo-seguridad">CVV:</label></div>
-                                    <input class="text-box-2" type="text" id="codigo-seguridad" name="codigo-seguridad">
+                                    <input class="text-box-2" type="text" id="codigo-seguridad" name="codigo-seguridad" placeholder='CVV'>
                                     <?php 
                                         if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             if(isset($_POST['codigo-seguridad'])){
@@ -139,8 +159,9 @@ if(!isset($_SESSION['id'])){
                                     if(isset($error)){
                                         if($error && $error2 && $error3){
                                             $_SESSION['metodo']=true;
-                                            header('location:compra-realizada.php');//me quede aquí falta resolver el por que se
-                                        }//se redirige a el carrito
+                                            header('location: compra-realizada.php');
+                                            exit();
+                                        }
                                     }
                                  }
                             ?>

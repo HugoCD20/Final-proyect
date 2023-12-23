@@ -18,11 +18,24 @@
             }else{
                 $cantidad-=1;
             }
-            $consulta2="UPDATE carrito SET cantidad=:cantidad where id=:id2";
-            $stmt2=$conexion->prepare($consulta2);
-            $stmt2->bindParam(":cantidad",$cantidad);
-            $stmt2->bindParam(":id2",$id2);
-            $stmt2->execute();
+            $consulta3="SELECT * from productos where id=:id";
+            $stmt3=$conexion->prepare($consulta3);
+            $stmt3->bindParam(':id',$id);
+            $stmt3->execute();
+            if($stmt3->rowCount()>0){
+                while($registro3 = $stmt3->fetch(PDO::FETCH_ASSOC)){
+                    $stock=$registro3['stock'];
+                }
+            }
+            //---------------------------------------------------------
+
+            if($cantidad<=$stock && $cantidad>0){
+                $consulta2="UPDATE carrito SET cantidad=:cantidad where id=:id2";
+                $stmt2=$conexion->prepare($consulta2);
+                $stmt2->bindParam(":cantidad",$cantidad);
+                $stmt2->bindParam(":id2",$id2);
+                $stmt2->execute();
+            }
             header("location:Carrito.php");
         }
     } else {

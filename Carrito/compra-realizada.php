@@ -4,7 +4,6 @@ if(!isset($_SESSION['id'])){
     header('location:../index.php');
     exit();
 }
-$_SESSION['pagina']=5;
    if(isset($_SESSION['metodo']) && isset($_SESSION['direccion'])){ 
     if($_SESSION['pagina']==6){
         try {
@@ -24,19 +23,25 @@ $_SESSION['pagina']=5;
                     if ($stmt2->rowCount() > 0) {
                         while ($registro2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
                             $stock=$registro2['stock'];
-                            $stock -=$registro['cantidad'];
-                            $consulta3="UPDATE productos set stock=:stock where id=:id_producto";
-                            $stmt3=$conexion->prepare($consulta3);
-                            $stmt3->bindParam(":stock",$stock);
-                            $stmt3->bindParam(":id_producto",$id_producto);
-                            $stmt3->execute();
+                            if($registro['cantidad']<=$stock){
+                                $stock -=$registro['cantidad'];
+                                $consulta3="UPDATE productos set stock=:stock where id=:id_producto";
+                                $stmt3=$conexion->prepare($consulta3);
+                                $stmt3->bindParam(":stock",$stock);
+                                $stmt3->bindParam(":id_producto",$id_producto);
+                                $stmt3->execute();
+                                //aqui se borra el carrito
+                                $id=$registro['id'];
+                                $consulta4="DELETE FROM carrito where id=:id";
+                                $stmt4=$conexion->prepare($consulta4);
+                                $stmt4->bindParam(":id",$id);
+                                $stmt4->execute();
+                            }else{
+                                $_SESSION['error-compra']="¡ups! parece que no hay suficientes:".$registro2['Nombre'];
+                            }
                         }
                     }
-                    $id=$registro['id'];
-                    $consulta4="DELETE FROM carrito where id=:id";
-                    $stmt4=$conexion->prepare($consulta4);
-                    $stmt4->bindParam(":id",$id);
-                    $stmt4->execute();
+                    
 
                 }
             } 
@@ -56,11 +61,16 @@ $_SESSION['pagina']=5;
             while ($registro2 = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $stock=$registro2['stock'];
                 $stock -=1;
+                if($stock>=0){
                 $consulta3="UPDATE productos set stock=:stock where id=:id_compra";
                 $stmt3=$conexion->prepare($consulta3);
                 $stmt3->bindParam(":stock",$stock);
                 $stmt3->bindParam(":id_compra",$id_compra);
                 $stmt3->execute();
+                }else{
+                    $_SESSION['error-compra']="¡ups! parece que no hay suficientes:".$registro2['Nombre'];
+                }
+
             }
         }
         $_SESSION['directa']=null;
@@ -135,11 +145,34 @@ $_SESSION['pagina']=5;
             <div class="content-5">
                 <div class="content-6" style="width: 60%; margin-left:20%;">
                     <div class="titulo-1" style="justify-content: start; margin-left: 25%;">
-                        <h3 class="title-5">¡GRACIAS POR <br> COMPRAR!</h3>
+                        <?php
+                            if(isset($_SESSION['error-compra'])){
+                                echo '<h3 class="title-5">¡Nooo <br> problemas!</h3>';
+                            }else{
+                                echo '<h3 class="title-5">¡GRACIAS POR <br> COMPRAR!</h3>';
+                            }
+                        ?>
+                        
                     </div>
-                    <p style="color: #164863; margin-left: 35%;">Tu compra se realizó correctamete</p>
+                        <?php
+                            if(isset($_SESSION['error-compra'])){
+                                echo "<p style='color: #164863; margin-left: 35%;'>".$_SESSION['error-compra']."</p>";
+                            }else{
+                                echo '<p style="color: #164863; margin-left: 35%;">Tu compra se realizó correctamete</p>';
+                            }
+                        ?>
                     <div class="boton">
-                        <a class="boton-6" href="../index.php"><button style="color: #DDF2FD;">Inicio</button></a>
+                        <?php
+                            if(isset($_SESSION['error-compra'])){
+                                if($_SESSION['pagina']==6){
+                                    echo '<a class="boton-6" href="Carrito.php"><button style="color: #DDF2FD;">Regresar al carrito</button></a>';
+                                }else{
+                                    echo '<a class="boton-6" href="../index.php"><button style="color: #DDF2FD;">Inicio</button></a>';
+                                }
+                            }else{
+                                echo '<a class="boton-6" href="../index.php"><button style="color: #DDF2FD;">Inicio</button></a>';
+                            }
+                        ?>
                     </div>
                 </div>
                 

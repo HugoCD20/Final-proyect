@@ -75,9 +75,6 @@ if(!isset($_SESSION['id'])){
                                 case 4:
                                     echo '<a href="../Perfil/perfil.php"><button><img class="img-3" src="../image/regreso.png" alt=""></button></a>';
                                     break;
-                                case 5:
-                                    echo '<a href="../index.php"><button><img class="img-3" src="../image/regreso.png" alt=""></button></a>';
-                                    break;
                                 case 7: 
                                     echo '<a href="../Perfil/direcciones.php"><button><img class="img-3" src="../image/regreso.png" alt=""></button></a>';
                                     break;
@@ -114,31 +111,40 @@ if(!isset($_SESSION['id'])){
                             $stmt2->execute();
                             if ($stmt2->rowCount() > 0) {
                                 while ($registro2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
-                                    echo" <div class='lista'>
-                                    <div class='con-1'>
-                                        <div class='imagen-5'><img class='img-3' src='../$registro2[imagen]' alt='producto'></div>
-                                    </div>
-                                    <div class='con-2' style='flex-direction:column; align-items:start;'><p class='prod-1'><strong>$registro2[Nombre]</strong>
-                                        <br>$registro2[stock] existencias</p>
-                                        <form action='eliminar-carrito.php' method='POST'>
-                                            <input type='hidden' name='id' value='$registro[id]'>
-                                            <button class='eliminar' style='text-align:start;'>Eliminar</button>
-                                        </form>
-                                    </div>
-                                    <div class='con-3'>                                    
-                                    <form style='display: flex; aline-items:center;' action='sumar-producto.php' method='POST'>
-                                        <input type='hidden' name='id' value='$registro2[id]'>
-                                    <div style='display:flex;  align-items: center;'>
-                                    <button class='boton-4'  name='accion' value='restar'>-</button>
-                                    <p class='texto-2'>". $registro['cantidad']."</p>
-                                    <button class='boton-5' name='accion' value='sumar'>+</button>
-                                    </div>
-                                    <p class='texto-2'>$". $registro['cantidad']*$registro2['Precio']
-                                    ."</p></form></div>
-                                </div>";
-                                $_SESSION['nproductos']+=$registro['cantidad'];
-                                $_SESSION['precio']+=($registro['cantidad']*$registro2['Precio']);
-                                $_SESSION['carro']=true;
+                                    if($registro2['stock']>0){
+                                    
+                                            echo" <div class='lista'>
+                                        <div class='con-1'>
+                                            <div class='imagen-5'><img class='img-3' src='../$registro2[imagen]' alt='producto'></div>
+                                        </div>
+                                        <div class='con-2' style='flex-direction:column; align-items:start;'><p class='prod-1'><strong>$registro2[Nombre]</strong>
+                                            <br>$registro2[stock] existencias</p>
+                                            <form action='eliminar-carrito.php' method='POST'>
+                                                <input type='hidden' name='id' value='$registro[id]'>
+                                                <button class='eliminar' style='text-align:start;'>Eliminar</button>
+                                            </form>
+                                        </div>
+                                        <div class='con-3'>                                    
+                                        <form style='display: flex; aline-items:center;' action='sumar-producto.php' method='POST'>
+                                            <input type='hidden' name='id' value='$registro2[id]'>
+                                        <div style='display:flex;  align-items: center;'>
+                                        <button class='boton-4'  name='accion' value='restar'>-</button>
+                                        <p class='texto-2'>". $registro['cantidad']."</p>
+                                        <button class='boton-5' name='accion' value='sumar'>+</button>
+                                        </div>
+                                        <p class='texto-2'>$". $registro['cantidad']*$registro2['Precio']
+                                        ."</p></form></div>
+                                    </div>";
+                                    $_SESSION['nproductos']+=$registro['cantidad'];
+                                    $_SESSION['precio']+=($registro['cantidad']*$registro2['Precio']);
+                                    $_SESSION['carro']=true;
+                                    }else{
+                                        $consulta3="DELETE from carrito where id=:id";
+                                        $stmt3=$conexion->prepare($consulta3);
+                                        $stmt3->bindParam(':id',$registro['id']);
+                                        $stmt3->execute();
+                                        echo '<center> <p class="error">No hay productos disponibles</p> </center>';
+                                    }
                                 }
                             } else {
                                 echo '<center> <p class="error">No hay productos disponibles</p> </center>';
