@@ -169,7 +169,7 @@ if(!isset($_SESSION['id'])){
                         <div class="con-4"><p><strong>Total:     $<?php  if($_SESSION['precio']+100!=100){echo $_SESSION['precio']+100;}else{echo "00.00";}?></strong></p></div>
                     </div>
                     <div class="comprar-2">
-                        <a class="boton-3" href="seleccionar-direccion.php"><button>Continuar compra</button></a>
+                        <a class="boton-3" href="seleccionar-direccion.php"><button class="bot">Continuar compra</button></a>
                     </div>
                 </div>
             

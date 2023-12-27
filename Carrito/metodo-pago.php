@@ -42,7 +42,7 @@ if(!isset($_SESSION['id'])){
                     </div>
                     <form class="direccion" action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
                         <div class="calle">
-                            <div class="div" style="width: 100%; display: flex;margin-left: 55%;">
+                            <div class="div-6">
                                 <label for="Ntarjeta">Número de tarjeta:</label></div>
                                 <input class="text-box-2" type="text" id="NTarjeta" name="NTarjeta" placeholder='XXXX-XXXX-XXXX-XXXX'>
                                 <?php 
@@ -73,9 +73,9 @@ if(!isset($_SESSION['id'])){
                         
                         <div class="caja-2">
                             <div class="boxx" style="align-items: end;">
-                                <div class="div" style="width: 100%; display: flex;justify-content:end; margin-right: 3.5rem;">
+                                <div class="div-5">
                                     <label for="Fecha">Fecha de vencimiento:</label></div>
-                                    <div style='display:flex; flex-direction:row background-color:blue;width:50%'>
+                                    <div class ="fecha-2">
                                     <input style='margin-right:0.4rem;' class="text-box-2" type="text" id="Fecha" name="mes" placeholder='Mes'>
                                     <input class="text-box-2" type="text" id="Fecha" name="año" placeholder='Año'>
                                     </div>
@@ -122,7 +122,7 @@ if(!isset($_SESSION['id'])){
 
                             </div>
                             <div class="box">
-                                <div class="div" style="width: 100%; display: flex;justify-content:start;">
+                                <div class="div-6">
                                     <label for="codigo-seguridad">CVV:</label></div>
                                     <input class="text-box-2" type="text" id="codigo-seguridad" name="codigo-seguridad" placeholder='CVV'>
                                     <?php 
