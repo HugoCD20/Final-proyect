@@ -42,11 +42,11 @@ if(!isset($_SESSION['id'])){
                 <div class="content-11">
                     <h4 class="title-5">Actualizar Perfil</h4>
                     <form class="form-2" action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
-                        <div class="div" style="width: 100%; display: flex;margin-left: 55%;">
+                        <div class="div">
                         <label for="nombre">Nombre:</label></div>
                         <input class="text-box-2" type="text" id="nombre" name="nombre">
 
-                        <div class="div" style="width: 100%; display: flex;margin-left: 55%;">
+                        <div class="div">
                         <label for="correo">Correo electrónico:</label></div>
                         <input class="text-box-2" type="text" id="correo" name="correo">
                         <?php 
@@ -64,7 +64,7 @@ if(!isset($_SESSION['id'])){
                             
                              }
                         ?>
-                        <div class="div" style="width: 100%; display: flex;margin-left: 55%;">
+                        <div class="div">
                         <label for="contrasena">Contraseña:</label></div>
                         <input class="text-box-2" type="password" id="contrasena" name="contrasena">
                        

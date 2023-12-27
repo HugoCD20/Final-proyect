@@ -106,35 +106,35 @@ if(!isset($_SESSION['id'])){
                 <h3 class="title-5">Añadir dirección:</h3>
                 <form class="direccion" action="procesar-direccion.php" method="POST">
                     <div class="calle">
-                        <div class="div" style="width: 100%; display: flex;margin-left: 55%;">
+                        <div class="div-2" >
                             <label for="calle">Calle:</label></div>
                             <input class="text-box-2" type="text" id="calle" name="calle" placeholder="Calle" required>
                     </div>
                     <div class="caja-4">
-                        <div class="div" style="width: 100%; display: flex;justify-content:center; margin-right: 19rem;">
+                        <div class="div-2">
                             <label for="colonia">Colonia:</label></div>
                             <input class="text-box-2" type="text" id="colonia" name="colonia" placeholder="Colonia" required>
                     </div>
                     <div class="caja-2">
                         <div class="box" style="align-items: end;">
-                            <div class="div" style="width: 100%; display: flex;justify-content:end; margin-right: 3.5rem;">
+                            <div class="div-3">
                                 <label for="numeroE">Número exterior:</label></div>
                                 <input class="text-box-2" type="text" id="numeroE" name="numeroE" placeholder="Número exterior" required>
                         </div>
                         <div class="box">
-                            <div class="div" style="width: 100%; display: flex;justify-content:start;">
+                            <div class="div-4">
                                 <label for="codigo-postal">Código postal:</label></div>
                                 <input class="text-box-2" type="text" id="codigo-postal" name="codigo-postal" placeholder="codigo postal" required>
                         </div>
                     </div>
                     <div class="caja-2">
                         <div class="box" style="align-items: end;">
-                            <div class="div" style="width: 100%; display: flex;justify-content:end; margin-right: 7rem;">
+                            <div class="div-3">
                                 <label for="estado">Estado:</label></div>
                                 <input class="text-box-2" type="text" id="estado" name="estado" placeholder="Estado" required>
                         </div>
                         <div class="box">
-                            <div class="div" style="width: 100%; display: flex;justify-content:start;">
+                            <div class="div-4">
                                 <label for="numerot">Número telefónico:</label></div>
                                 <input class="text-box-2" type="text" id="numerot" name="numerot" placeholder="Número de telefono" required>
                             </div>

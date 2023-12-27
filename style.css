@@ -534,6 +534,28 @@ select {
     color:#164863;
     margin-top: 0.7rem;
 }
+.div{
+    width: 100%;
+    display: flex;
+    margin-left: 55%;
+}
+.div-2{
+    width: 100%; 
+    display: flex;
+    justify-content:center; 
+    margin-right: 19rem;
+}
+.div-3{
+    width: 100%;
+    display: flex;
+    justify-content:end; 
+    margin-right: 3.5rem;
+}
+.div-4{
+    width: 100%; 
+    display: flex;
+    justify-content:start;
+}
 footer{
     width: 100%;
     height: 4rem;
@@ -599,16 +621,31 @@ footer{
     /*aqui inicia la pagina principal*/
     .title-2 {
         font-size: 2rem;
+        text-shadow: 0.5px 0.5px 0.5px #919191,
+        0.5px 0.5px 0.5px #919191,
+        0.5px 1.5px 0.5px #919191,
+        0.5px 2px 0.5px #919191,
+        0.5px 2.5px 0.5px #919191,
+        0.5px 3px 0.5px #919191,
+        0.5px 3.5px 0.5px #919191,
+        0.5px 4px 0.5px #919191,
+        0.5px 4.5px 0.5px #919191,
+        0.5px 5px 0.5px #919191,
+    0.5px 9px 3px rgba(16,16,16,0.4),
+    0.5px 11px 5px rgba(16,16,16,0.2),
+    0.5px 12.5px 17.5px rgba(16,16,16,0.2),
+    0.5px 15px 30px rgba(16,16,16,0.4);
     }
     .title-3 {
         font-size: 0.9rem;
         text-shadow: 0.5px 0.5px 0.5px rgb(255, 255, 255);
     }
     .cont-1{
-        width: 4rem;
+        width: 5rem;
+        margin: 0.4rem;
     }
     .contenedores {
-        width: 90%;
+        width: 100%;
     }
     .titulo-3{
         font-size: 0.4rem;
@@ -665,9 +702,66 @@ footer{
     }
     h4{
         margin-top: 0px;
+        margin-bottom: 0px;
         font-size: 0.7rem;
     }
-    
+    .title-1{
+        font-size: 0.7rem;
+    }
+    /*Esta parte es del login*/
+    .div{
+    margin-left: 15%;
+    }
+    .text-box-2{
+        width: 100%;
+        height: 1.3rem;
+    }
+    .form-2{
+        font-size: small;
+        margin-top: 1rem;
+        width: 80%;
+    }
+    .content-11{
+        padding-top: 1rem;
+    }
+    .button-5{
+        font-size: smaller;
+    }
+    .button-6{
+        width: 100%;
+        height: 2rem;
+    }
+    /*esta parte es de las direcciones*/
+    .button-7{
+        width: 70%;
+        height: 4rem;
+    }   
+    .div-2{
+        margin-right: 10rem;
+        font-size: small;
+        color: #164863;
+    } 
+    .div-3{
+        justify-content: start;
+        margin-right: 0rem;
+        font-size: small;
+        color: #164863;
+    }
+    .div-4{
+        font-size: small;
+        color: #164863;
+    }
+    .caja-2{
+        flex-direction: column;
+    }
+    .box{
+        width: 100%;
+    }
+    .boton-6{
+        width: 28%;
+        height: 1.5rem;
+        font-size: small;
+    }
 }
 @media (min-width: 300px) and (max-width: 767px) {
     .imagen-2{
@@ -722,16 +816,31 @@ footer{
     /*aqui inicia la pagina principal*/
     .title-2 {
         font-size: 2rem;
+        text-shadow: 0.5px 0.5px 0.5px #919191,
+        0.5px 0.5px 0.5px #919191,
+        0.5px 1.5px 0.5px #919191,
+        0.5px 2px 0.5px #919191,
+        0.5px 2.5px 0.5px #919191,
+        0.5px 3px 0.5px #919191,
+        0.5px 3.5px 0.5px #919191,
+        0.5px 4px 0.5px #919191,
+        0.5px 4.5px 0.5px #919191,
+        0.5px 5px 0.5px #919191,
+    0.5px 9px 3px rgba(16,16,16,0.4),
+    0.5px 11px 5px rgba(16,16,16,0.2),
+    0.5px 12.5px 17.5px rgba(16,16,16,0.2),
+    0.5px 15px 30px rgba(16,16,16,0.4);
     }
     .title-3 {
         font-size: 0.9rem;
         text-shadow: 0.5px 0.5px 0.5px rgb(255, 255, 255);
     }
     .cont-1{
-        width: 4rem;
+        width: 5rem;
+        margin: 0.4rem;
     }
     .contenedores {
-        width: 90%;
+        width: 100%;
     }
     .titulo-3{
         font-size: 0.4rem;
@@ -788,7 +897,65 @@ footer{
     }
     h4{
         margin-top: 0px;
+        margin-bottom: 0px;
         font-size: 0.7rem;
+    }
+    .title-1{
+        font-size: 0.7rem;
+    }
+    /*Esta parte es del login*/
+    .div{
+    margin-left: 15%;
+    }
+    .text-box-2{
+        width: 100%;
+        height: 1.3rem;
+    }
+    .form-2{
+        font-size: small;
+        margin-top: 1rem;
+        width: 80%;
+    }
+    .content-11{
+        padding-top: 1rem;
+    }
+    .button-5{
+        font-size: smaller;
+    }
+    .button-6{
+        width: 100%;
+        height: 2rem;
+    }
+    /*esta parte es de las direcciones*/
+    .button-7{
+        width: 70%;
+        height: 4rem;
+    }   
+    .div-2{
+        margin-right: 10rem;
+        font-size: small;
+        color: #164863;
+    } 
+    .div-3{
+        justify-content: start;
+        margin-right: 0rem;
+        font-size: small;
+        color: #164863;
+    }
+    .div-4{
+        font-size: small;
+        color: #164863;
+    }
+    .caja-2{
+        flex-direction: column;
+    }
+    .box{
+        width: 100%;
+    }
+    .boton-6{
+        width: 28%;
+        height: 1.5rem;
+        font-size: small;
     }
 }
 @media (min-width: 768px) and (max-width: 1024px) {}
