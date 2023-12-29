@@ -20,7 +20,7 @@ if ($nombreF != '') {
 $dimension = getimagesize($ruta_provisional);
 $with = $dimension[0];
 $height = $dimension[1];
-$carpeta = "Fotos/";
+$carpeta = "../Fotos/";
 $src = $carpeta . $nombreF;
 
 if ($tipo != "image/jpg" && $tipo != "image/png" && $tipo != "image/JPG" && $tipo != "image/jpeg") {
