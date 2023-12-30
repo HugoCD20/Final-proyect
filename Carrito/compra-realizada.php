@@ -5,7 +5,7 @@ if(!isset($_SESSION['id'])){
     exit();
 }
    if(isset($_SESSION['metodo']) && isset($_SESSION['direccion'])){ 
-    if($_SESSION['pagina']==6){
+    if($_SESSION['page']==6){
         try {
             include('../conexion.php');
             $idUsuario = $_SESSION['id'];
@@ -96,10 +96,10 @@ if(!isset($_SESSION['id'])){
         case 'opcion1':
           break;
         case 'opcion2':
-            window.location.href = 'perfil.php';
+            window.location.href = '../Perfil/perfil.php';
           break;
         case 'opcion3':
-          window.location.href = 'Cerrar-sesion.php';
+          window.location.href = '../Cerrar-sesion.php';
           break;
         default:
           break;
@@ -164,7 +164,7 @@ if(!isset($_SESSION['id'])){
                     <div class="boton">
                         <?php
                             if(isset($_SESSION['error-compra'])){
-                                if($_SESSION['pagina']==6){
+                                if($_SESSION['page']==6){
                                     echo '<a class="boton-6" href="Carrito.php"><button style="color: #DDF2FD;">Regresar al carrito</button></a>';
                                 }else{
                                     echo '<a class="boton-6" href="../index.php"><button style="color: #DDF2FD;">Inicio</button></a>';

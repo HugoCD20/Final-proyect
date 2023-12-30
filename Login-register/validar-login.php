@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 while ($registro = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     $_SESSION['id']=$registro['id'];
                     $_SESSION['nombre']=$registro['Nombre'];
+                    $_SESSION['Correo']=$registro['Correo'];
                     header("location:../index.php");
                 }
             } else {

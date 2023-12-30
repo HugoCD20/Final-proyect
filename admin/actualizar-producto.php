@@ -39,32 +39,48 @@ if(!isset($_SESSION['id-admin'])){
             </div>
             <div class="titulo-1">
                 <div class="content-11">
+                    <?php 
+                        $id=$_POST['id'];
+                        include('../conexion.php');
+                        $consulta="SELECT * FROM productos where id=:id";
+                        $stmt=$conexion->prepare($consulta);
+                        $stmt->bindParam(':id',$id);
+                        $stmt->execute();
+                        if ($stmt->rowCount() > 0) {
+                            while ($registro = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                $_SESSION['nombre-producto']=$registro['Nombre'];
+                                $_SESSION['descripcion']=$registro['Descripcion'];
+                                $_SESSION['tipo']=$registro['tipo'];
+                                $_SESSION['precio']=$registro['Precio'];
+                                $_SESSION['stock']=$registro['stock'];
+                            }
+                        }
+                    ?>
                     <h4 class="title-5">ACTUALIZAR</h4>
                     <form class="form-2" action="realizar-actualizacion-producto.php" method="POST" enctype="multipart/form-data">
                         <div class="div" style="width: 100%; display: flex;margin-left: 55%;">
                         <label for="nombre">Nombre:</label></div>
-                        <input class="text-box-2" type="text" id="nombre" name="nombre">
+                        <input class="text-box-2" type="text" id="nombre" name="nombre" value="<?php echo $_SESSION['nombre-producto'];?>">
 
                         <div class="div" style="width: 100%; display: flex;margin-left: 55%;">
                         <label for="descripcion">Descripción:</label></div>
-                        <textarea style="width: 50%; height: 15%;" id="descripcion" name="descripcion"></textarea>
+                        <textarea style="width: 50%; height: 15%;" id="descripcion" name="descripcion" ><?php echo $_SESSION['descripcion'];?></textarea>
 
                         <div class="div" style="width: 100%; display: flex;margin-left: 55%;">
                         <label for="tipo">Tipo(laptops, audifonos, perifericos, computadoras, <br>componentes y monitores):</label></div>
-                        <input class="text-box-2" type="text" id="tipo" name="tipo">
+                        <input class="text-box-2" type="text" id="tipo" name="tipo" value="<?php echo $_SESSION['tipo'];?>">
 
                         <div class="div" style="width: 100%; display: flex;margin-left: 55%;">
                         <label  for="stock">Stock:</label></div>
-                        <input class="text-box-2" type="text" id="stock" name="stock">
+                        <input class="text-box-2" type="text" id="stock" name="stock" value="<?php echo $_SESSION['stock'];?>">
                         
                         <div class="div" style="width: 100%; display: flex;margin-left: 55%;">
                             <label  for="precio">Precio:</label></div>
-                            <input class="text-box-2" type="text" id="precio" name="precio">
+                            <input class="text-box-2" type="text" id="precio" name="precio" value="<?php echo $_SESSION['precio'];?>">
 
                         <div class="div" style="width: 100%; display: flex;margin-left: 55%;">
                         <label  for="imagen">Imagen:</label></div>
                         <input class="text-box-2" type="file" id="imagen" name="imagen" accept="image/*">
-                        <?php $id=$_POST['id'];?>
                         <input type='hidden' name='id' value='<?php echo $id;?>'>
                         <input class="button-5" type="submit" value="Actualizar">
                     </form>

@@ -122,7 +122,7 @@ if(!isset($_SESSION['id'])){
 
                             </div>
                             <div class="box">
-                                <div class="div-6">
+                                <div class="div-8">
                                     <label for="codigo-seguridad">CVV:</label></div>
                                     <input class="text-box-2" type="text" id="codigo-seguridad" name="codigo-seguridad" placeholder='CVV'>
                                     <?php 

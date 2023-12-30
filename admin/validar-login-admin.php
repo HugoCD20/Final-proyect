@@ -1,6 +1,5 @@
 <?php 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    session_start();
     $Contraseña = $_POST['contrasena'];
     $Correo = $_POST['correo'];
     if(strlen($Contraseña)>200 && strlen($Correo)>200){

@@ -515,15 +515,23 @@ button{
     width:50%;
 }
 .div-5{
+    color: #164863;
     width: 100%; 
     display: flex;
     justify-content:end; 
     margin-right: 3.5rem;
 }
 .div-6{
+    color: #164863;
     width: 100%; 
     display: flex;
     margin-left: 55%;
+}
+.div-8{
+    width: 100%; 
+    display: flex;
+    color: #164863;
+    justify-content: start;
 }
 select {
     background-color: #164863; /* Cambia este valor al color deseado */
@@ -1009,7 +1017,8 @@ footer{
     }
     .div-5{
         color: #164863;
-        margin-right: 3.7rem;
+        justify-content: start;
+        margin-right: 0rem;
         font-size: smaller;
     }
     .div-6{

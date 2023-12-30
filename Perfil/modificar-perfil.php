@@ -44,11 +44,11 @@ if(!isset($_SESSION['id'])){
                     <form class="form-2" action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
                         <div class="div">
                         <label for="nombre">Nombre:</label></div>
-                        <input class="text-box-2" type="text" id="nombre" name="nombre">
+                        <input class="text-box-2" type="text" id="nombre" name="nombre" value="<?php echo $_SESSION['nombre'];?>">
 
                         <div class="div">
                         <label for="correo">Correo electrónico:</label></div>
-                        <input class="text-box-2" type="text" id="correo" name="correo">
+                        <input class="text-box-2" type="text" id="correo" name="correo" value="<?php echo $_SESSION['Correo'];?>">
                         <?php 
                             if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 $Correo=$_POST['correo'];

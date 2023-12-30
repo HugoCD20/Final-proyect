@@ -32,7 +32,6 @@ if(!isset($_SESSION['id-admin'])){
             <div class="buscador">
                 <div class="regreso-2" style="width: 100%; margin-bottom: 1rem;">
                     <div class="regresar">
-                        <a href="administrador.php"><button><img class="img-3" src="../image/regreso.png" alt=""></button></a>
                     </div>
                 </div>
             </div>

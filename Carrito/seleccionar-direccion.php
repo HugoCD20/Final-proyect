@@ -5,8 +5,8 @@ if(!isset($_SESSION['id'])){
     header('location:../index.php');
     exit();
 }
-if(isset($_SESSION['pagina'])){//valida de que pagina viene
-    switch($_SESSION['pagina']){
+if(isset($_SESSION['page'])){//valida de que pagina viene
+    switch($_SESSION['page']){
         case 6:
             if(isset($_SESSION['carro'])){//valida si visito antes el carrito
                 if(!$_SESSION['carro']){//valida si el carrito está vacio
@@ -16,7 +16,7 @@ if(isset($_SESSION['pagina'])){//valida de que pagina viene
                 header('location:Carrito.php');
             }
             break;
-        case 3:
+        default:
             if(isset($_POST['id'])){
                 $_SESSION['directa']=$_POST['id'];
             }            
@@ -54,7 +54,7 @@ if(isset($_SESSION['pagina'])){//valida de que pagina viene
             <div class="buscador">
                 <div class="regresar">
                     <?php
-                        switch($_SESSION['pagina']){
+                        switch($_SESSION['page']){
                             case 6:
                                 echo '<a href="Carrito.php"><button><img class="img-3" src="../image/regreso.png" alt=""></button></a>';
                                 break;

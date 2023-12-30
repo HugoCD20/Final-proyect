@@ -3,6 +3,7 @@ session_start();
 if(!isset($_SESSION['id'])){
     header('location: ../Login-register/login.php');
     exit();
+    
 }
 ?>
 <!DOCTYPE html>
@@ -82,7 +83,7 @@ if(!isset($_SESSION['id'])){
                                     echo '<a href="../index.php"><button><img class="img-3" src="../image/regreso.png" alt=""></button></a>';
                                     break;
                             }
-                            $_SESSION['pagina']=6;
+                            $_SESSION['page']=6;
                         }
                     ?>
                 </div>
