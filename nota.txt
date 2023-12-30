@@ -1,4 +1,0 @@
->> Me quede en la pagina metodo de pago
- << ya realice home,vista-producto, producto, carrito, direccion, login, register, metodo de pago,
-    compra realizada, perfil, actualizar perfil y direcciones.
->>Falta  
