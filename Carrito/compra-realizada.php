@@ -156,9 +156,9 @@ if(!isset($_SESSION['id'])){
                     </div>
                         <?php
                             if(isset($_SESSION['error-compra'])){
-                                echo "<p style='color: #164863; margin-left: 35%;'>".$_SESSION['error-compra']."</p>";
+                                echo "<p class='Compra'>".$_SESSION['error-compra']."</p>";
                             }else{
-                                echo '<p style="color: #164863; margin-left: 35%;">Tu compra se realizó correctamete</p>';
+                                echo '<p class="Compra">Tu compra se realizó correctamete</p>';
                             }
                         ?>
                     <div class="boton">
