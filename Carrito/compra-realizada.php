@@ -1,5 +1,8 @@
 <?php 
 session_start();
+if(!isset($_SESSION['confirmacion'])){
+    header('location:../index.php');
+}
 $_SESSION['pg']=5;
 if(!isset($_SESSION['id'])){
     header('location:../index.php');

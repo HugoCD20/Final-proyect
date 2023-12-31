@@ -71,6 +71,9 @@
                     }else{
                         $id=$_SESSION['id-producto'];
                     }
+                    if($id==null){
+                        header('location:../index.php');
+                    }
                     $consulta="select * from productos where id=:id";
                     $stmt = $conexion->prepare($consulta);
                     $stmt->bindParam(":id",$id);

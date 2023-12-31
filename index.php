@@ -43,6 +43,7 @@
                 $_SESSION['pg']=1;
                 $_SESSION['tipo']=null;
                 $_SESSION['id-producto']=null;
+                $_SESSION['pag']=null;
                 if (!isset($_SESSION['id'])){
                     echo "<a class='menu' href='Login-register/login.php'><div class='menu'><h1 class='title-1'>Iniciar sesión</h1></div></a>";
                 }else{

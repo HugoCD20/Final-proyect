@@ -40,7 +40,11 @@ if(!isset($_SESSION['id-admin'])){
             <div class="titulo-1">
                 <div class="content-11">
                     <?php 
-                        $id=$_POST['id'];
+                        if(isset($_POST['id'])){
+                            $id=$_POST['id'];
+                        }else{
+                            header('location:administracion.php');
+                        }
                         include('../conexion.php');
                         $consulta="SELECT * FROM productos where id=:id";
                         $stmt=$conexion->prepare($consulta);

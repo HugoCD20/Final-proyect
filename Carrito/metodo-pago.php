@@ -1,5 +1,16 @@
 <?php 
 session_start();
+$_SESSION['confirmacion']=true;
+
+if(!isset($_SESSION['pag'])){
+   header('location:../index.php');
+   exit();
+}else{
+    if($_SESSION['pag'] !=2){
+        header('location:../index.php');
+        exit();
+    }
+}
 if(!isset($_SESSION['id'])){
     header('location:../index.php');
     exit();

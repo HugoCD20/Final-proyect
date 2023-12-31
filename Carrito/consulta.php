@@ -1,6 +1,10 @@
 <?php
     include('../conexion.php');
-    $id_compra=$_SESSION['directa'];
+    if(isset($_SESSION['directa'])){
+        $id_compra=$_SESSION['directa'];
+    }else{
+        header('location: ../index.php');
+    }    
     $consulta="SELECT * FROM productos where id=:id_compra";
     $stmt=$conexion->prepare($consulta);
     $stmt->bindParam(":id_compra",$id_compra);

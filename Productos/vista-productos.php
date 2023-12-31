@@ -87,38 +87,45 @@ $_SESSION['pg']=2;
             <div class="content-3">
                 <div class="contenedores-2">
                         <?php
-                            include("../conexion.php");                         
-                            if($_SESSION['tipo']==null){
-                                $tipo=$_POST['tipo'];   
-                                $_SESSION['tipo']=$tipo;
-                            }else{
-                                $tipo=$_SESSION['tipo'];
-                            }
-                            $consulta="select * from productos where tipo=:tipo";
-                            $stmt = $conexion->prepare($consulta);
-                            $stmt->bindParam(":tipo",$tipo);
-                            $stmt->execute();
-                            $contador=0;
-                            if ($stmt->rowCount() > 0) {
-                                while ($registro = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                    if($registro['stock']>0){
-                                        echo "<div class='cont-2'>
-                                            <form class='imagen-1' action='producto.php' method='POST'>
-                                                <input type='hidden' name='id' value='$registro[id]'>
-                                                    <button>
-                                                        <img class='img-1' src='../$registro[imagen]' alt='laptop'>
-                                                    </button>
-                                                </form>
-                                            <div class='titulo-3' style='text-align:center;'><h2>$registro[Nombre]</h2></div>
-                                        </div>";
-                                        $contador+=1;
-                                    }
+                            try {
+                                include("../conexion.php");                         
+                                if($_SESSION['tipo']==null){
+                                    $tipo=$_POST['tipo'];   
+                                    $_SESSION['tipo']=$tipo;
+                                }else{
+                                    $tipo=$_SESSION['tipo'];
                                 }
-                            } else {
-                                echo '<center> <p class="error">No hay productos disponibles</p> </center>';
-                            }
-                            if($contador==0){
-                                echo '<center> <p class="error">No hay productos disponibles</p> </center>';
+                                if($tipo==null){
+                                    header('location:../index.php');
+                                }
+                                $consulta="select * from productos where tipo=:tipo" ;
+                                $stmt = $conexion->prepare($consulta);
+                                $stmt->bindParam(":tipo",$tipo);
+                                $stmt->execute();
+                                $contador=0;
+                                if ($stmt->rowCount() > 0) {
+                                    while ($registro = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                        if($registro['stock']>0){
+                                            echo "<div class='cont-2'>
+                                                <form class='imagen-1' action='producto.php' method='POST'>
+                                                    <input type='hidden' name='id' value='$registro[id]'>
+                                                        <button>
+                                                            <img class='img-1' src='../$registro[imagen]' alt='laptop'>
+                                                        </button>
+                                                    </form>
+                                                <div class='titulo-3' style='text-align:center;'><h2>$registro[Nombre]</h2></div>
+                                            </div>";
+                                            $contador+=1;
+                                        }
+                                    }
+                                } else {
+                                    echo '<center> <p class="error">No hay productos disponibles</p> </center>';
+                                }
+                                if($contador==0){
+                                    echo '<center> <p class="error">No hay productos disponibles</p> </center>';
+                                }
+                            } catch (Exception $e){
+                                echo "Error: " . $e->getMessage();
                             }
                         ?>                    
                 </div>                

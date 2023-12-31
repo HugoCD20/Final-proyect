@@ -42,7 +42,13 @@ if(!isset($_SESSION['id-admin'])){
                     </div>
                     <div class="boton">
                         <form class="boton-6" action="validar-eliminacion.php" method="POST">
-                            <?php $id=$_POST['id'];?>
+                            <?php 
+                            if(isset($_POST['id'])){
+                                $id=$_POST['id'];
+                            }else{
+                                header('location:administracion.php');
+                            }
+                            ?>
                             <input type='hidden' name='id' value='<?php echo $id;?>'>
                             <button style="color: #DDF2FD;">Eliminar</button>
                         </form>
