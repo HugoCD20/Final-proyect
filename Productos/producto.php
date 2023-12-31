@@ -41,6 +41,7 @@
                 session_start();
                 $_SESSION['pagina']=3;
                 $_SESSION['page']=3;
+                $_SESSION['pg']=3;
                 if (!isset($_SESSION['id'])){
                     echo "<a class='menu' href='../Login-register/login.php'><div class='menu'><h1 class='title-1'>Iniciar sesión</h1></div></a>";
                 }else{

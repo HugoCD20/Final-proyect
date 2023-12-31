@@ -1,6 +1,7 @@
 <?php session_start();
 $_SESSION['id-producto']=null;
 $_SESSION['pagina']=2;
+$_SESSION['pg']=2;
 ?>
 <!DOCTYPE html>
 <html lang="es">

@@ -84,6 +84,7 @@ if(!isset($_SESSION['id'])){
                                     break;
                             }
                             $_SESSION['page']=6;
+                            $_SESSION['pg']=4;
                         }
                     ?>
                 </div>

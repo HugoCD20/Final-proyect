@@ -35,7 +35,26 @@ $_SESSION['pagina']=4;
             <div class="buscador">
                 <div class="regreso-2" style="width: 100%; margin-bottom: 1rem;">
                     <div class="regresar">
-                        <a href="../index.php"><button><img class="img-3" src="../image/regreso.png" alt=""></button></a>
+                        <?php
+                            if(isset($_SESSION['pg'])){
+                                switch($_SESSION['pg']){
+                                    case 2:
+                                        echo '<a href="../Productos/vista-productos.php"><button><img class="img-3" src="../image/regreso.png" alt=""></button></a>';
+                                        break;
+                                    case 3:
+                                        echo '<a href="../Productos/producto.php"><button><img class="img-3" src="../image/regreso.png" alt=""></button></a>';
+                                        break;
+                                    case 4:
+                                        echo '<a href="../Carrito/Carrito.php"><button><img class="img-3" src="../image/regreso.png" alt=""></button></a>';
+                                        break;
+                                    default:
+                                        echo '<a href="../index.php"><button><img class="img-3" src="../image/regreso.png" alt=""></button></a>';
+                                        break;
+                                }
+                            }else{
+                                header('location:index.php');
+                            }
+                        ?>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 <?php 
 session_start();
+$_SESSION['pg']=5;
 if(!isset($_SESSION['id'])){
     header('location:../index.php');
     exit();

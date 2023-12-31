@@ -40,6 +40,7 @@
                 <?php 
                 session_start();
                 $_SESSION['pagina']=1;
+                $_SESSION['pg']=1;
                 $_SESSION['tipo']=null;
                 $_SESSION['id-producto']=null;
                 if (!isset($_SESSION['id'])){
