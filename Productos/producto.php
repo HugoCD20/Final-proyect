@@ -80,6 +80,7 @@
                     $stmt->execute();
                     if ($stmt->rowCount() > 0) {
                         while ($registro = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                            $descripcion=nl2br($registro['Descripcion']);
                             echo "
                             <div class='imagen-3'>
                                 <div class='imagen-4'>
@@ -89,7 +90,7 @@
                             <div class='texto'>
                             <div class='title-5'><h2>$registro[Nombre]</h2></div>
                             <div class='precio'><p>$$registro[Precio]</p></div>
-                            <div class='descripcion'>$registro[Descripcion]</div>
+                            <div class='descripcion'>$descripcion</div>
                             <div class='botones'>
                                 <div class='stock'>
                                     <p>$registro[stock] unidades.</p>
